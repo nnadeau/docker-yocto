@@ -18,8 +18,8 @@ RUN apt-get --quiet --yes install \
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Create a 'docker' user, and switch to it
-RUN /usr/sbin/useradd --no-create-home --shell /bin/bash docker
+# Create a 'dockeruser' user, and switch to it
+RUN /usr/sbin/useradd --no-create-home --shell /bin/bash dockeruser
 
-# Switch to our docker user
-USER docker
+# Switch to our dockeruser user
+USER dockeruser
