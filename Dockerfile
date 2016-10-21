@@ -22,3 +22,9 @@ RUN echo "dash dash/sh boolean false" | debconf-set-selections && dpkg-reconfigu
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Create a 'docker' user, and switch to it
+RUN /usr/sbin/useradd --no-create-home --shell /bin/bash docker
+
+# Switch to our docker user
+USER docker
