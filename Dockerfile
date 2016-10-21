@@ -12,7 +12,7 @@ RUN apt-get --quiet --yes install \
 
 # Install our dependencies
 RUN apt-get --quiet --yes install \
-    sudo cpio cvs subversion tree libxt-dev bmap-tools openssh-client
+    sudo cpio cvs subversion tree libxt-dev bmap-tools openssh-client gawk
 
 # Clean up
 RUN apt-get clean && \
