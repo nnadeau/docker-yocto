@@ -19,7 +19,7 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create a 'dockeruser' user, and switch to it
-RUN /usr/sbin/useradd --create-home --shell /bin/bash dockeruser
+RUN /usr/sbin/useradd --create-home --shell /bin/bash dockeruser --uid 1000 --gid 1000
 
 # Switch to our dockeruser user
 USER dockeruser
