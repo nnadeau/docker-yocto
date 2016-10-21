@@ -18,8 +18,11 @@ RUN apt-get --quiet --yes install \
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Create a 'dockeruser' user, and switch to it
-RUN /usr/sbin/useradd --create-home --shell /bin/bash dockeruser --uid 1000 --gid 1000
+# Create a 'dockeruser' user and group, add it to sudoers and switch to it
+RUN /usr/sbin/groupadd --gid 1000 dockeruser && \
+    /usr/sbin/useradd --create-home --shell /bin/bash dockeruser --uid 1000 --gid 1000 && \
+    echo "dockeruser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 
 # Switch to our dockeruser user
 USER dockeruser
