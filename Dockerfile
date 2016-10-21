@@ -14,9 +14,6 @@ RUN apt-get --quiet --yes install \
 RUN apt-get --quiet --yes install \
     sudo cpio cvs subversion tree libxt-dev bmap-tools openssh-client
 
-# Set the default shell to bash instead of dash
-RUN echo "dash dash/sh boolean false" | debconf-set-selections && dpkg-reconfigure dash
-
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
