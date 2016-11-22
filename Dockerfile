@@ -8,8 +8,7 @@ RUN apt-get --quiet --yes update
 
 # Install Yocto's dependencies
 RUN apt-get --quiet --yes install \
-    gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm \
-    help2man
+    gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
 
 # Install our dependencies
 RUN apt-get --quiet --yes install \
