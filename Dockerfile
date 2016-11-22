@@ -24,6 +24,8 @@ RUN /usr/sbin/groupadd --gid 1000 dockeruser && \
     /usr/sbin/useradd --create-home --shell /bin/bash dockeruser --uid 1000 --gid 1000 && \
     echo "dockeruser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+# Create a Yocto build directory
+RUN mkdir -p /yocto/build && chown 1000:1000 /yocto/build
 
 # Switch to our dockeruser user
 USER dockeruser
